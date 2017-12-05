@@ -1,0 +1,14 @@
+[Unit]
+Description=Stellar Core Testnet
+After=postgresql.service
+
+[Service]
+ExecStart=/usr/local/bin/stellar-core --conf /etc/stellar/stellar-core-testnet.cfg
+User=stellar
+Group=stellar
+WorkingDirectory=/
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+

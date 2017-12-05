@@ -1,0 +1,14 @@
+[Unit]
+Description=Horizon
+After=stellar-core.service
+
+[Service]
+ExecStart=/usr/local/bin/horizon --db-url postgres://horizon:taro@localhost/horizon?sslmode=disable --stellar-core-db-url postgres://stellar:taro@localhost/core?sslmode=disable --stellar-core-url http://localhost:11626 --ingest=true
+User=horizon
+Group=horizon
+WorkingDirectory=/
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
